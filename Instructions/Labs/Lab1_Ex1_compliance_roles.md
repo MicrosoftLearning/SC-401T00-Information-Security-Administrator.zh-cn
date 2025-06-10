@@ -62,8 +62,6 @@ lab:
 
 1. 有关新的 Microsoft Purview 门户的消息将显示在屏幕上。 选择“**开始使用**”以访问新门户。
 
-    ![显示“欢迎使用新的 Microsoft Purview 门户屏幕”的屏幕截图。](../Media/welcome-purview-portal.png)
-
 1. 熟悉新的 Microsoft Purview 门户。 完成后，让浏览器窗口保持打开状态。
 
 你已成功切换到 Joni Sherman 的帐户，现在可以开始使用实验室。

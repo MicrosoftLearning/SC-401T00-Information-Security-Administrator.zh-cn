@@ -24,6 +24,14 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 的任务是确保部门之间�
 
 1. 右键单击任务栏中的“开始”按钮并选择“**终端**”，打开 PowerShell。
 
+1. 在终端窗口中运行“**安装模块**”cmdlet，以安装最新的 **Exchange Online PowerShell** 模块版本：
+
+    ```powershell
+    Install-Module ExchangeOnlineManagement
+    ```
+
+1. 输入表示“是”的 Y 并按 Enter 键，以确认“不受信任的存储库安全”对话框 。  此过程可能需要一段时间才能完成。
+
 1. 输入 **Connect-ExchangeOnline** cmdlet，以使用 Exchange Online PowerShell 模块并连接到租户：
 
     ```powershell
@@ -93,6 +101,8 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 的任务是确保部门之间�
 ## 任务 3 - 验证默认品牌行为
 
 必须确认在从租户的用户收到受 Office 365 消息加密保护的消息时不会为外部收件人显示任何社交 ID 对话框，并且他们需要在访问加密内容时使用 OTP。
+
+> [!alert] 某些实验室环境中可能会阻止外部电子邮件的传递。 此任务可能无法按预期完成。
 
 1. 你仍应以 **SC-401-CL1\admin** 身份登录到 Client 1 VM (SC-401-CL1)。
 
@@ -187,6 +197,8 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 的任务是确保部门之间�
 ## 任务 5 - 验证自定义品牌行为
 
 要验证新的自定义配置，需要再次使用财务团队成员 Lynne Robbins 的帐户。
+
+> [!提醒] 外部电子邮件限制可能会阻止此邮件的接收。 品牌打造可能不会按预期呈现。
 
 1. 返回到 **Microsoft Edge**，在 InPrivate 模式下打开的 Outlook 网页版窗口中，你仍应以 **Lynne Robbins** 的身份保持登录状态。
 

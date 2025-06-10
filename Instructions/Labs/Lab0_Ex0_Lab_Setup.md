@@ -27,77 +27,79 @@ lab:
 
 在此任务中，你将在 Microsoft Purview 门户中启用“审核”以监视门户活动。
 
-1. 你仍应使用 **SC-401-CL1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)，并使用 MOD 管理员帐户登录到 Microsoft 365。
+1. 使用 **SC-401-CL1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)，并使用 MOD 管理员帐户登录到 Microsoft 365。
 
-1. 通过鼠标右键选择 Windows 按钮打开提升权限的终端窗口，然后选择**终端（管理员）**。
+1. 在 Microsoft Edge 中，导航到 Microsoft Purview 门户，`https://purview.microsoft.com`，然后登录。
 
-1. 在终端窗口中运行“**安装模块**”cmdlet，以安装最新的 **Exchange Online PowerShell** 模块版本：
+1. 有关新的 Microsoft Purview 门户的消息将显示在屏幕上。 选择“**开始使用**”以访问新门户。
+
+    ![显示“欢迎使用新的 Microsoft Purview 门户屏幕”的屏幕截图。](../Media/welcome-purview-portal.png)
+
+1. 从左侧边栏中选择“**解决方案**”，然后选择“**审核**”。
+
+1. 在“**搜索**”页面，选择“**开始录制用户和管理活动**”栏以启用审核日志记录。
+
+    ![显示“开始录制用户和管理员活动”按钮的屏幕截图。](../Media/enable-audit-button.png)
+
+1. 选择此选项后，蓝色栏应从此页面消失。
+
+<!----- PowerShell instructions
+
+1. Open an elevated Terminal window by selecting the Windows button with the right mouse button and then select **Terminal (Admin)**.
+
+1. Run the **Install Module** cmdlet in the terminal window to install the latest **Exchange Online PowerShell** module version:
 
     ```powershell
     Install-Module ExchangeOnlineManagement
     ```
 
-1. 输入表示“是”的 **Y**，并按 **Enter**，确认 NuGet 提供程序提示。
+1. Confirm the NuGet provider prompt  by typing **Y** for Yes and press **Enter**.
 
-1. 输入表示“是”的 Y 并按 Enter 键，以确认“不受信任的存储库安全”对话框 。  此过程可能需要一段时间才能完成。
+1. Confirm the Untrusted repository security dialog with **Y** for Yes and press **Enter**.  This process may take some time to complete.
 
-1. 运行 **Set-ExecutionPolicy** cmdlet，以更改执行策略，然后按 **Enter**
+1. Run the **Set-ExecutionPolicy** cmdlet to change your execution policy and press **Enter**
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     ```
 
-1. 关闭 PowerShell 窗口。
+1. Close the PowerShell window.
 
-1. 右键单击“Windows”按钮，然后选择“**终端(管理员)**”，打开常规（非提升的） PowerShell 窗口。
+1. Open a regular (non-elevated) PowerShell window by right-clicking the Windows button and selecting **Terminal**.
 
-1. 输入 **Connect-ExchangeOnline** cmdlet，以使用 Exchange Online PowerShell 模块并连接到租户：
+1. Run the **Connect-ExchangeOnline** cmdlet to use the Exchange Online PowerShell module and connect to your tenant:
 
     ```powershell
     Connect-ExchangeOnline
     ```
 
-1. 显示“登录”窗口时，以 `admin@WWLxZZZZZZ.onmicrosoft.com`（其中 ZZZZZZ 是实验室托管提供程序提供的唯一租户 ID）登录。 管理员的密码应由实验室托管提供程序提供。
+1. When the **Sign in** window is displayed, sign in as `admin@WWLxZZZZZZ.onmicrosoft.com` (where ZZZZZZ is your unique tenant ID provided by your lab hosting provider). Admin's password should be provided by your lab hosting provider.
 
-1. 若要检查审核是否已启用，请运行 **Get-AdminAuditLogConfig** cmdlet：
+1. To check if Audit is enabled, run the **Get-AdminAuditLogConfig** cmdlet:
 
     ```powershell
     Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled
     ```
 
-1. 如果 _UnifiedAuditLogIngestionEnabled_ 返回“false”，则启用审核。
+1. If _UnifiedAuditLogIngestionEnabled_ returns false, then Audit is disabled.
 
-1. 要启用审核日志，请运行 **Set-AdminAuditLogConfig** cmdlet，并将 **UnifiedAuditLogIngestionEnabled** 设置为 _true_：
+1. To enable the Audit log, run the **Set-AdminAuditLogConfig** cmdlet and set the **UnifiedAuditLogIngestionEnabled** to _true_:
 
     ```powershell
     Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true
     ```
 
-1. 要验证是否已启用审核，请再次运行 **Get-AdminAuditLogConfig** cmdlet：
+1. To verify that Audit is enabled, run the **Get-AdminAuditLogConfig** cmdlet again:
 
     ```powershell
     Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled
     ```
 
-1. _UnifiedAuditLogIngestionEnabled_ 应返回 _true_，告知已启用审核。
-
-<!---
-
-1. In Microsoft Edge, navigate to the Microsoft Purview portal, `https://purview.microsoft.com`, and log in.
-
-1. A message about the new Microsoft Purview portal will appear on the screen. Select the option to agree with the terms of data flow disclosure and the privacy statement, then select **Try now**.
-
-    ![Screenshot showing the Welcome to the new Microsoft Purview portal screen.](../Media/welcome-purview-portal.png)
-
-1. Select **Solutions** from the left sidebar, then select **Audit**.
-
-1. On the **Search** page, select the **Start recording user and admin activity** bar to enable audit logging.
-
-    ![Screenshot showing the Start recording user and admin activity button.](../Media/enable-audit-button.png)
-
-1. Once you select this option, the blue bar should disappear from this page.
+1. _UnifiedAuditLogIngestionEnabled_ should return _true_ to let you know Audit is enabled.
 
 -->
+
+已在 Microsoft 365 中成功启用审核。
 
 ## 任务 2 - 设置用于实验室练习的用户密码
 
@@ -147,17 +149,29 @@ lab:
 
 你现在已经启用了设备加入功能，可以开始加入设备以使用终结点 DLP 策略对其进行保护。 启用该功能的过程可能需要长达 30 分钟。
 
-## 任务 4 - 启用内部风险分析
+## 任务 4 - 启用内部风险分析以及数据共享
 
-在此任务中，你将为内部风险管理启用分析。
+在此任务中，你将为内部风险管理启用分析及数据共享。
 
 1. 你仍应使用 **SC-401-CL1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)，并以 MOD 管理员身份登录到 Microsoft Purview。
 
 1. 在 Microsoft Purview 中，导航到“**设置**” > “**内部风险管理**” > “**分析**”。
 
-1. 将 **Analytics** 切换为“**打开**”，然后选择“**保存**”。
+1. 将这些设置切换为“**开启**”：
 
-已为内部风险管理启用分析。
+   - **在租户级别显示洞察**
+
+   - **在用户级别显示洞察**
+
+1. 选择页面底部的“保存”  。
+
+1. 在左侧导航窗格中，选择“**数据共享**”。
+
+1. 在数据共享部分中，将“**共享用户风险详细信息与其他安全解决方案**”切换为“**开启**”。
+
+1. 选择页面底部的“保存”  。
+
+你已为内部风险管理启用分析及数据共享。
 
 ## 任务 5 - 初始化 Microsoft Defender XDR
 
