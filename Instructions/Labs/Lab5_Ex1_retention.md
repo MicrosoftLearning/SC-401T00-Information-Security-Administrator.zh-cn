@@ -89,7 +89,7 @@ lab:
 1. 在“**为策略命名**”页上输入：
 
     - **名称**：`Sensitive Financial Data Retention`
-    - **说明**：`Makes the 'Sensitive Financial Records' label available to users in Exchange, SharePoint, OneDrive, and Teams.`
+    - **说明**：`Makes the 'Sensitive Financial Records' label available to users in Exchange, SharePoint, and OneDrive.`
 
 1. 选择**下一步**。
 

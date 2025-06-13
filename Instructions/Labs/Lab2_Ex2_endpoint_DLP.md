@@ -19,7 +19,7 @@ Contoso Ltd. 新聘请的信息安全管理员 Joni Sherman 被要求加强对�
 
 在本任务中，你将加入 Windows 11 设备，使其得到终结点 DLP 策略的保护。
 
-1. 使用 **SC-401-cl1\admin** 帐户登录到**客户端 2 VM (SC-401-CL2)**。
+1. 使用 **SC-401-cl2\admin** 帐户登录到**客户端 2 VM (SC-401-CL2)**。
 
 1. 打开 Microsoft Edge，导航到 **`https://purview.microsoft.com`**，以 **Joni Sherman** 的身份登录到 Microsoft Purview 门户。 以 `JoniS@WWLxZZZZZZ.onmicrosoft.com` 身份登录（其中 ZZZZZZ 是实验室托管提供程序提供的唯一租户 ID）。 Joni 的密码是在上一练习中设置的。
 
@@ -65,7 +65,7 @@ Contoso Ltd. 新聘请的信息安全管理员 Joni Sherman 被要求加强对�
 
 在此任务中，你将创建一个 DLP 策略，该策略阻止将敏感信息传输到 USB 驱动器。 这有助于在不授权的情况下降低数据被带离现场的风险。
 
-1. 使用 SC-401-cl1\admin 帐户登录到客户端 1 VM (SC-401-CL1)。
+1. 使用 SC-401-CL1\admin 帐户登录到客户端 1 VM (SC-401-CL1)。
 
 1. 你应仍位于 Microsoft Purview 门户中的“**设备**”页，并以 Joni Sherman 的身份登录。
 
