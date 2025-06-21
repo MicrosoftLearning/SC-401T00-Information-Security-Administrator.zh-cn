@@ -361,7 +361,7 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 正在推出敏感度标签策�
 
 ## 任务 7 - 在 Defender for Cloud Apps 中启用 Microsoft Purview 集成
 
-在此任务中，你将在 Microsoft Defender for Cloud Apps 中启用 Microsoft Purview 集成。 这允许 Defender 扫描新文件以查找 Microsoft Purview 敏感度标签，并基于这些标签检查内容。
+在此任务中，你将在 Microsoft Defender for Cloud Apps 中启用 Microsoft Purview 集成。 这允许 Defender 扫描新文件以查找 Microsoft Purview 敏感度标签，基于这些标签检查内容并监视文件，以便应用文件策略。
 
 1. 仍应使用 **SC-401-CL1\admin** 登录到客户端 1 VM (SC-401-CL1)，并且应以 Joni Sherman 的身份登录。
 
@@ -385,11 +385,17 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 正在推出敏感度标签策�
 
 1. 选择“保存”以应用设置。
 
-你已启用 Defender for Cloud Apps，以便从 Microsoft Purview 识别和扫描敏感度标签的文件。
+1. 在左窗格中的“**信息保护**”部分下，选择“**文件**”。
+
+1. 在“**文件**”页面上，选择“**启用文件监视**”。
+
+1. 选择“保存”以应用设置。
+
+你已启用 Defender for Cloud Apps 来扫描文件以查找敏感度标签并监视文件，以便文件策略可以评估和应用治理操作。
 
 ## 任务 8 - 创建文件策略以自动标记外部共享文件
 
-启用标签扫描后，你将创建一个文件策略，用于将常规敏感度标签应用于组织外部共享的任何新文件。
+启用标签扫描后，你将创建一个文件策略，用于将“**Highly Confidential -Project-Falcon**敏感性标签”应用于组织外部共享的 Mark 8 Project 文件夹中的文件。 此策略被归类为 DLP，因为它可防止敏感数据意外泄露。
 
 1. 在 **Microsoft Defender** 中，导航到“**云应用**” > “**策略**” > “**策略管理**”。
 
@@ -399,11 +405,19 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 正在推出敏感度标签策�
 
 1. 在“**创建文件策略**”页上，配置：
 
-   - **策略名称**：`Auto-label externally shared files`
+   - **策略名称**：`Auto-label external sharing for Project Falcon files`
 
-   - **策略严重性**：**低**
+   - **策略严重性**：**高**
 
    - **类别**：**DLP**
+
+   - **应用于**：**所选文件夹**
+
+      - 选择“**添加文件夹**”，然后在“**文件名**”字段中搜索`Project`。
+
+      - 选中 **Project Team Notebook**和 **Project Team** SharePoint 文件夹的复选框。
+
+      - 选择“**完成**”以关闭“**选择文件夹**”窗口。
 
    - 在“**符合以下所有部分的文件**”中：
 
@@ -417,14 +431,14 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 正在推出敏感度标签策�
 
       - 选中“**应用敏感度标签**”的复选框
 
-      - 在下拉列表中选择 **“常规-任何人”（不受限制）**
+      - 从下拉列表中选择“**Highly Confidential-Project - Falcon**”
 
    - 对 **Microsoft Office SharePoint Online** 重复相同的流程
 
       - 选中“**应用敏感度标签**”的复选框
 
-      - 从下拉列表中选择“**高度机密项目猎鹰**”
+      - 从下拉列表中选择“**Highly Confidential-Project - Falcon**”
 
 1. 选择“**创建**”，以完成创建文件策略。
 
-你已创建一个文件策略，该策略将常规敏感度标签应用于 SharePoint 和 OneDrive 中外部共享的文件。 检测到匹配文件后，Defender for Cloud Apps 将自动应用标签。
+你已创建一个文件策略，该策略将高度机密敏感度标签应用于 位于 SharePoint 和 OneDrive 的 Mark 8 Project 文件夹中外部共享的文件。 检测到匹配文件后，Defender for Cloud Apps 将自动应用标签。

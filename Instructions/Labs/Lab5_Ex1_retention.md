@@ -22,8 +22,6 @@ lab:
 1. 发布保留标签
 1. 创建自动应用保留标签策略
 1. 创建静态的保留策略
-1. 创建自适应范围
-1. 创建自适应保留策略
 1. 恢复 SharePoint 内容
 
 ## 任务 1 - 创建保留标签
@@ -184,102 +182,102 @@ lab:
 
 你已配置静态保留策略，该策略会在自动删除 Teams 消息之前保留三年。
 
-## 任务 5 - 创建自适应范围
+<!------ Commenting out until tenant bug issues are resolved
+## Task 5 – Create an adaptive scope
 
-在此任务中，你将定义一个自适应范围，该范围面向与领导角色和运营角色关联的 Microsoft 365 组。
+In this task, you'll define an adaptive scope that targets Microsoft 365 groups associated with leadership and operations roles.
 
-1. 在 Microsoft Purview 中，“**设置**” > “**角色和范围**” > “**自适应范围**”。
+1. In Microsoft Purview, **Settings** > **Roles and scopes** > **Adaptive scopes**.
 
-1. 在“自适应范围”页上，选择“+ 创建范围”********。
+1. On the **Adaptive scopes** page select **+ Create scope**.
 
-1. 在“**命名自适应策略范围**”页上，输入：
+1. On the **Name your adaptive policy scope** page enter:
 
-    - **名称**：`Leadership and Ops Groups`
-    - **说明**：`Targets Leadership and Operations M365 groups with privileged access to sensitive data.`
+    - **Name**: `Leadership and Ops Groups`
+    - **Description**: `Targets Leadership and Operations M365 groups with privileged access to sensitive data.`
 
-1. 选择**下一步**。
+1. Select **Next**.
 
-1. 在“分配管理单元”页上，选择“下一步”********。
+1. On the **Assign admin unit** page select **Next**.
 
-1. 在“**想要创建哪种类型的范围?**”页上，选择“**用户**”，然后选择“**下一步**”。
+1. On the **What type of scope do you want to create?** page select **Users**, then select **Next**.
 
-1. 在“**创建查询以定义用户**”页的“**用户属性**”部分中，确保为用户属性配置选择这些值：
+1. On the **Create the query to define users** page, in the **User attributes** section, ensure these values are selected for the user attribute configuration:
 
-   - 选择“**属性**”下拉列表，然后选择“**部门**”
-   - 保留下一个字段中的默认值“**等于**”
-   - 输入 `Leadership` 作为“**值**”
+   - Select the **Attribute** dropdown then select **Department**
+   - Leave the default **is equal to** value in the next field
+   - Enter `Leadership` as the **Value**
 
-1. 在“**创建查询以定义用户**”页上选择“**+ 添加属性**”，添加第二个属性。 在刚刚配置的字段下方的新字段中，配置以下值：
+1. Add a second attribute by selecting **+ Add attribute** on the **Create the query to define users** page. In the new field under the one we just configured, configure these values:
 
-   - 选择查询运算符下拉列表，并将其从 And 更新为 **Or**
-   - 选择“**属性**”下拉列表，然后选择“**部门**”
-   - 保留下一个字段中的默认值“**等于**”
-   - 输入 `Operations` 作为“**值**”
+   - Select the dropdown for the query operator and update it from And to **Or**
+   - Select the **Attribute** dropdown then select **Department**
+   - Leave the default **is equal to** value in the next field
+   - Enter `Operations` as the **Value**
 
-1. 选择**下一步**。
+1. Select **Next**.
 
-1. 在“查看并完成”页上，选择“提交”********。
+1. On the **Review and finish** page select **Submit**.
 
-1. 创建自适应范围后，请在“**已创建范围**”页上选择“**完成**”。
+1. Once your adaptive scope is created select **Done** on the **Your scope was created** page.
 
-你已创建一个自适应范围，以支持组织中特权组的目标保留。
+You've created an adaptive scope to support targeted retention for privileged groups in the organization.
 
-## 任务 6 - 创建自适应保留策略
+## Task 6 – Create an adaptive retention policy
 
-在此任务中，你将使用创建的自适应范围为具有敏感责任的 Microsoft 365 组配置保留策略。
+In this task, you'll use the adaptive scope you created to configure a retention policy for Microsoft 365 groups with sensitive responsibilities.
 
-1. 在 Microsoft Purview 中，导航到“**解决方案**” > “**数据生命周期管理**” > “**策略**” >  “**保留策略**”。
+1. In Microsoft Purview, navigate to **Solutions** > **Data Lifecycle Management** > **Policies** >  **Retention policies**.
 
-1. 在“**保留策略**”页上，选择“**+ 新建保留策略**”。
+1. On the **Retention policies** page, select **+ New retention policy**.
 
-1. 在“**命名保留策略**”页上输入：
+1. On the **Name your retention policy** page enter:
 
-    - **名称**：`Privileged Group Retention`
-    - **说明**：`Retains content from Leadership and Operations groups for 5 years to support audit and investigation.`
+    - **Name**: `Privileged Group Retention`
+    - **Description**: `Retains content from Leadership and Operations groups for 5 years to support audit and investigation.`
 
-1. 选择**下一步**。
+1. Select **Next**.
 
-1. 在“策略范围”页上选择“下一步”********。
+1. On the **Policy Scope** page select **Next**.
 
-1. 在“选择要创建的保留策略的类型”页上，选择“自适应”，然后选择“下一步”************。
+1. On the **Choose the type of retention policy to create** page select **Adaptive** then select **Next**.
 
-1. 在“选择自适应策略范围和位置”页上，选择“+ 添加范围”********。
+1. On the **Choose adaptive policy scopes and locations** page select **+ Add scopes**.
 
-1. 在“**选择自适应策略范围**”浮出控件面板上，选中“**领导组和运营组**”复选框，然后在面板底部选择“**添加**”。
+1. On the **Choose adaptive policy scopes** flyout panel select the checkbox for **Leadership and Ops Groups** then select **Add** at the bottom of the panel.
 
-1. 回到“选择应用策略的位置”，启用****：
+1. Back on the **Choose locations to apply the policy** enable:
 
-    - Microsoft 365 组邮箱和站点
-    - 将所有其他位置保留为禁用状态。
+    - Microsoft 365 Group mailboxes & sites
+    - Leave all other locations disabled.
 
-1. 选择**下一步**。
+1. Select **Next**.
 
-1. 在“**决定是否要保留内容、删除内容或二者均可**”页上，确保为保留配置设置以下值：
+1. On the **Decide if you want to retain content, delete it, or both** page, ensure these values are set for the retention configuration:
 
-   - 选择“**将项保留特定时间段**”。
-   - 在“**将项保留特定时间段**”下，从下拉列表中选择“**5 年**”
-   - 保留期开始依据：上次修改项的时间
-   - 保留期结束时：自动删除项
+   - Select **Retain items for a specific period**.
+   - Under **Retain items for a specific period**, select **5 years** from the dropdown list
+   - **Start the retention period based on**: When items were last modified
+   - **At the end of the retention period**: Delete items automatically
 
-1. 选择**下一步**。
+1. Select **Next**.
 
-1. 在“查看并完成”页上，选择“提交”********。
+1. On the **Review and finish** page select **Submit**.
 
-1. 创建策略后，选择“**完成**”。
+1. Select **Done** once the policy is created.
 
-你已创建一个保留策略，该策略适用于特权组拥有的内容，在删除前将其保留五年。
+You've created a retention policy that applies to content owned by privileged groups, retaining it for five years before deletion.
+-->
 
-## 任务 7 - 恢复 SharePoint 内容
+## 任务 5 – 恢复 SharePoint 内容
 
 在此任务中，你将模拟从 SharePoint 网站还原已删除的文档，以验证恢复选项。
 
-1. 使用 **SC-401-cl1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)。
+1. 你仍应使用 **SC-401-CL1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)，并以 Joni Sherman 的身份登录到 Microsoft Purview。
 
-1. 在 Microsoft Edge 中，导航到 `https://www.office.com` 并以 Joni Sherman 的身份登录到 Microsoft 365  。
+1. 选择左上角的“应用启动器”（网格图标），然后从子菜单中选择 “**SharePoint**”。
 
-1. 在 Microsoft Office 365 登陆页面上，选择左上角的“应用启动器”（网格图标），然后从子菜单中选择 **SharePoint**。
-
-   ![显示省略号位置的屏幕截图，以显示操作菜单。](../Media/show-more-actions-sharepoint.png)
+   ![显示省略号位置的屏幕截图，以显示操作菜单。](../Media/sharepoint-app-launcher.png)
 
 1. 在 SharePoint 登陆页面上，搜索“`Benefits`”，然后从搜索结果中选择“**Benefits @ Contoso**”。
 
@@ -296,5 +294,3 @@ lab:
 1. 在左侧边栏中，选择“**文档**”并注意文件已还原。
 
 你已经成功从 SharePoint 网站恢复了已删除的文档。
-
-已从 SharePoint 还原已删除的内容，在意外或未经授权的删除的情况下验证文档恢复。

@@ -22,7 +22,7 @@ Contoso Ltd. 信息安全管理员 Joni Sherman 的任务是确保部门之间�
 
 1. 你仍然应该会使用 **SC-401-CL1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)。
 
-1. 右键单击任务栏中的“开始”按钮并选择“**终端**”，打开 PowerShell。
+1.  右键单击任务栏中的“开始”按钮并选择“**终端 (管理员)**”，打开 PowerShell。
 
 1. 在终端窗口中运行“**安装模块**”cmdlet，以安装最新的 **Exchange Online PowerShell** 模块版本：
 
