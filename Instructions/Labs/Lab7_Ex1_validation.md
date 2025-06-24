@@ -28,9 +28,7 @@ lab:
 
 1. 你仍应使用 **SC-401-cl1\admin** 帐户登录到客户端 1 VM (SC-401-CL1)，并且应以 **Joni Sherman**`JoniS@WWLxZZZZZZ.onmicrosoft.com`（其中 ZZZZZZ 是实验室托管提供者提供的唯一租户 ID）的身份登录到 Microsoft 365。 Joni 的密码是在上一练习中设置的。
 
-1. 在 Microsoft Edge 中，选择左上角的应用启动器，然后选择 **Word**。
-
-    ![显示在应用启动器菜单中选择 Word 的位置的屏幕截图。](../Media/meatball-menu-word.png)
+1. 在 Microsoft Edge 中，导航到 `https://word.office.com`，并使用 Microsoft Office 帐户 **Joni Sherman**`JoniS@WWLxZZZZZZ.onmicrosoft.com` 登录 （其中 ZZZZZZ 是实验室托管提供商提供的唯一租户 ID）。 Joni 的密码是在上一练习中设置的。
 
 1. 选择“**空白文档**”。
 
@@ -46,7 +44,7 @@ lab:
 
     > [!Note] 新发布的敏感度标签可能需要 24-48 小时才能可供应用。 如果新创建的敏感度标签不可用，则可以使用此练习的“**机密**” > “**所有员工**”。
 
-1. 将敏感度标签更改为“**公开**”，以验证显示业务理由对话框。
+1. 将敏感度标签更改为**高度机密** > **项目 - Falcon**，以验证是否显示业务理由对话框。
 
 1. 选择“**取消**”，以保留敏感度标签。
 
