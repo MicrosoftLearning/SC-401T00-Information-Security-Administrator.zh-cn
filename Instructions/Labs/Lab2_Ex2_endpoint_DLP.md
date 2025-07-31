@@ -31,7 +31,7 @@ Contoso Ltd. 新聘请的信息安全管理员 Joni Sherman 被要求加强对�
 
 1. 在“**下载**”对话框中，将鼠标悬停在下载上方，然后选择文件夹图标以“**在文件夹中显示**”。
 
-1. 将 Zip 文件解压缩至 SC-401-CL1 的“**桌面**”。 应该会看到名为 DeviceComplianceLocalOnboardingScript.cmd 的脚本。
+1. 将 zip 文件解压缩至 SC-401-CL2 的“桌面”****。 应该会看到名为 DeviceComplianceLocalOnboardingScript.cmd 的脚本。
 
 1. 在桌面上，右键单击刚刚解压的 **DeviceComplianceLocalOnboardingScript.cmd** 文件，然后选择“**显示更多选项**”，再选择“**属性**”。
 
